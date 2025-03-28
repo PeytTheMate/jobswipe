@@ -1,0 +1,282 @@
+/* Base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #f5f7fa;
+    color: #2c3e50;
+}
+
+.app {
+    max-width: 600px;
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header styles */
+header {
+    background-color: white;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    max-width: 600px;
+    z-index: 100;
+}
+
+header h1 {
+    text-align: center;
+    color: #2196f3;
+    margin-bottom: 1rem;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #95a5a6;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.nav-btn:hover {
+    color: #2196f3;
+}
+
+/* Main content */
+main {
+    margin-top: 200px;
+    flex-grow: 1;
+    padding: 1rem;
+    position: relative;
+}
+
+/* Card Stack */
+.card-stack {
+    position: relative;
+    height: 60vh;
+    max-height: 600px;
+    margin-bottom: 2rem;
+}
+
+.job-card {
+    position: absolute;
+    width: 100%;
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    cursor: grab;
+    user-select: none;
+}
+
+.job-card.swiping {
+    transition: none;
+    cursor: grabbing;
+}
+
+.job-card h2 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.company-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    color: #7f8c8d;
+}
+
+.company-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 1rem;
+    object-fit: cover;
+}
+
+.salary {
+    color: #27ae60;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.skill-tag {
+    background: #e3f2fd;
+    color: #2196f3;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+}
+
+.action-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.action-btn:hover {
+    transform: scale(1.1);
+}
+
+.action-btn.reject {
+    background: #ff7675;
+    color: white;
+}
+
+.action-btn.save {
+    background: #fdcb6e;
+    color: white;
+}
+
+.action-btn.accept {
+    background: #00b894;
+    color: white;
+}
+
+/* Modals */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+
+.modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 1rem;
+    background: #2196f3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+/* Matches and Saved Lists */
+.matches-list, .saved-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.match-item, .saved-item {
+    background: white;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Swipe animations */
+@keyframes swipeRight {
+    to {
+        transform: translateX(200%) rotate(20deg);
+        opacity: 0;
+    }
+}
+
+@keyframes swipeLeft {
+    to {
+        transform: translateX(-200%) rotate(-20deg);
+        opacity: 0;
+    }
+}
+
+@keyframes swipeUp {
+    to {
+        transform: translateY(-200%);
+        opacity: 0;
+    }
+}
+
+.swipe-right {
+    animation: swipeRight 0.5s ease forwards;
+}
+
+.swipe-left {
+    animation: swipeLeft 0.5s ease forwards;
+}
+
+.swipe-up {
+    animation: swipeUp 0.5s ease forwards;
+}

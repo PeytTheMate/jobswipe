@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobSwipe - Find Your Next Career</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app">
+        <header>
+            <h1>JobSwipe</h1>
+            <nav>
+                <button id="profileBtn" class="nav-btn"><i class="fas fa-user"></i></button>
+                <button id="matchesBtn" class="nav-btn"><i class="fas fa-comments"></i></button>
+                <button id="savedBtn" class="nav-btn"><i class="fas fa-bookmark"></i></button>
+            </nav>
+        </header>
+
+        <main>
+            <div id="cardStack" class="card-stack">
+                <!-- Cards will be inserted here -->
+            </div>
+
+            <div class="action-buttons">
+                <button id="leftSwipe" class="action-btn reject"><i class="fas fa-times"></i></button>
+                <button id="upSwipe" class="action-btn save"><i class="fas fa-bookmark"></i></button>
+                <button id="rightSwipe" class="action-btn accept"><i class="fas fa-check"></i></button>
+            </div>
+        </main>
+
+        <!-- Profile Modal -->
+        <div id="profileModal" class="modal">
+            <div class="modal-content">
+                <h2>Your Profile</h2>
+                <form id="profileForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="title">Desired Role</label>
+                        <input type="text" id="title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="skills">Skills (comma-separated)</label>
+                        <input type="text" id="skills" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="experience">Years of Experience</label>
+                        <input type="number" id="experience" required>
+                    </div>
+                    <button type="submit">Save Profile</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Matches Modal -->
+        <div id="matchesModal" class="modal">
+            <div class="modal-content">
+                <h2>Your Matches</h2>
+                <div id="matchesList" class="matches-list">
+                    <!-- Matches will be inserted here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Saved Jobs Modal -->
+        <div id="savedModal" class="modal">
+            <div class="modal-content">
+                <h2>Saved Jobs</h2>
+                <div id="savedList" class="saved-list">
+                    <!-- Saved jobs will be inserted here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
